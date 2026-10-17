@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nhà May Phước — Chuyên may Đầm & Veston tại Mỹ Tho</title>
+<meta name="description" content="Nhà May Phước — tiệm may lâu đời tại Mỹ Tho, chuyên may đo Đầm và Veston. Từng đường kim mũi chỉ được đo, vẽ, lược và may bằng đôi tay hiểu người mặc.">
+<meta name="theme-color" content="#F4EEE0">
+<script>
+  document.documentElement.classList.add('js');
+  /* Nếu thư viện không tải được thì vẫn hiển thị nội dung bình thường */
+  setTimeout(function(){ if(!window.gsap){ document.documentElement.classList.remove('js'); var p=document.getElementById('pre'); if(p) p.style.display='none'; document.body.classList.remove('lock'); } }, 5000);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body class="lock">
+
+<!-- Preloader: bàn cắt của thợ may -->
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre-half t"></div><div class="pre-half b"></div>
+  <svg class="pre-draft" id="preDraft"></svg>
+
+  <div class="pre-stage">
+    <p class="pre-name">Nhà May</p>
+    <svg class="pre-word" viewBox="0 0 800 280">
+      <defs><clipPath id="preClip"><rect id="preClipR" x="0" y="0" width="0" height="280"/></clipPath></defs>
+      <text class="pre-fill" x="400" y="215" text-anchor="middle">Phước</text>
+      <g clip-path="url(#preClip)"><text class="pre-stitch" x="400" y="215" text-anchor="middle">Phước</text></g>
+      <g id="preNeedle" transform="translate(0 140)">
+        <g transform="rotate(-16)">
+          <path d="M0 -40 C -40 -70 -70 -10 -120 -34" fill="none" stroke="#7A1E27" stroke-width="2"/>
+          <path d="M-2.6 -52 L2.6 -52 L.9 44 L0 54 L-.9 44 Z" fill="#A9854F"/>
+          <ellipse cx="0" cy="-40" rx="1.8" ry="7" fill="#F4EEE0" stroke="#A9854F" stroke-width="1"/>
+        </g>
+      </g>
+    </svg>
+    <p class="pre-sub">Đầm · Veston · Mỹ Tho</p>
+  </div>
+
+  <div class="pre-tape"><svg id="preTicks"></svg></div>
+  <div class="pre-mark" id="preMark"><b><span id="preN">0</span> cm</b><i></i></div>
+
+  <div class="pre-slit" id="preSlit"></div>
+  <div class="pre-scissors" id="preSc">
+    <svg viewBox="0 0 64 32" width="64" height="32">
+      <g class="b1">
+        <polygon points="24,15 62,16 24,17.5" fill="#16120E"/>
+        <line x1="24" y1="16" x2="10" y2="25" stroke="#16120E" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="6.5" cy="26.5" r="4.6" fill="none" stroke="#7A1E27" stroke-width="2.2"/>
+      </g>
+      <g class="b2"><g transform="translate(0 32) scale(1 -1)">
+        <polygon points="24,15 62,16 24,17.5" fill="#16120E"/>
+        <line x1="24" y1="16" x2="10" y2="25" stroke="#16120E" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="6.5" cy="26.5" r="4.6" fill="none" stroke="#7A1E27" stroke-width="2.2"/>
+      </g></g>
+      <circle cx="24" cy="16" r="2" fill="#A9854F"/>
+    </svg>
+  </div>
+  <p class="pre-skip">Chạm để vào nhanh</p>
+</div>
+
+<div class="cur" id="cur"><span id="curT"></span></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Nhà May Phước — về đầu trang"><span>Nhà May</span><b>Phước</b></a>
+  <nav class="menu" aria-label="Điều hướng chính">
+    <a href="#cau-chuyen">Câu chuyện</a>
+    <a href="#vai">Chọn vải</a>
+    <a href="#so-do">Số đo</a>
+    <a href="#tac-pham">Tác phẩm</a>
+    <a href="#quy-trinh">Quy trình</a>
+    <a href="#dat-may" class="btn-mini">Đặt lịch</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#cau-chuyen"><small>I</small>Câu chuyện</a>
+  <a href="#vai"><small>II</small>Chọn vải</a>
+  <a href="#so-do"><small>III</small>Số đo</a>
+  <a href="#tac-pham"><small>IV</small>Tác phẩm</a>
+  <a href="#quy-trinh"><small>VI</small>Quy trình</a>
+  <a href="#dat-may"><small>VII</small>Đặt lịch</a>
+  <p>173 Nam Kỳ Khởi Nghĩa, P4, TP. Mỹ Tho · 0918 779 061</p>
+</div>
+
+<aside class="rail" aria-hidden="true">
+  <span class="rail-label" id="railLabel">Nhà May Phước</span>
+  <div class="rail-track"><div class="rail-fill" id="railFill"></div></div>
+</aside>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow rise-fade"><span></span>Tiệm may · Mỹ Tho</p>
+      <h1 aria-label="Nhà May Phước">
+        <span class="mask"><span class="rise it">Nhà May</span></span>
+        <span class="mask"><span class="rise big">Phước</span></span>
+      </h1>
+      <p class="lead rise-fade">Chuyên may <em>Đầm</em> &amp; <em>Veston</em> — mỗi đường kim mũi chỉ được đo, vẽ, lược và may bằng đôi tay hiểu người mặc.</p>
+      <div class="cta-row rise-fade">
+        <a class="btn" href="#dat-may">Đặt lịch đo may</a>
+        <a class="link" href="#tac-pham">Xem tác phẩm →</a>
+      </div>
+      <ul class="hero-meta rise-fade">
+        <li>173 Nam Kỳ Khởi Nghĩa, P4, TP. Mỹ Tho</li>
+        <li><a href="tel:0918779061">0918 779 061</a></li>
+      </ul>
+    </div>
+    <div class="hero-art">
+  <div class="arch-wrap" id="archWrap">
+    <div class="arch" data-cursor="Kéo xoay">
+      <div id="heroCanvas"></div>
+      <img class="fallback" src="assets/ao-hong-manocanh.png" alt="Veston hồng tweed trên ma-nơ-canh" onerror="this.style.display='none'">
+    </div>
+  </div>
+  <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+    <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+    <circle class="bg" cx="100" cy="100" r="98"/>
+    <g class="spin"><text><textPath href="#circ" textLength="480" lengthAdjust="spacing">NHÀ MAY PHƯỚC · MỸ THO · ĐẦM · VESTON · </textPath></text></g>
+    <text class="p" x="100" y="124" text-anchor="middle">P</text>
+  </svg>
+
+  <div class="hero-ui">
+    <div class="hero-chips" role="group" aria-label="Chọn vải cho ma-nơ-canh"></div>
+    <div class="hero-btns" role="group" aria-label="Thước dây">
+      <button type="button" data-m="0" aria-pressed="false">Ngực</button>
+      <button type="button" data-m="1" aria-pressed="true">Eo</button>
+      <button type="button" data-m="2" aria-pressed="false">Hông</button>
+      <button type="button" data-m="clear">Gỡ kim</button>
+    </div>
+    <p class="hero-cap" id="heroCap" aria-live="polite"></p>
+  </div>
+</div>
+  </div>
+  <div class="scroll-cue">Cuộn xuống</div>
+</section>
+
+<!-- ================= DẢI CHỮ ================= -->
+<div class="strip" aria-hidden="true"><div class="strip-in" data-dir="1">
+  <span><b>Đo</b><i>Rập</i>Cắt<b>Lược</b><i>May</i>Là</span>
+  <span><b>Đo</b><i>Rập</i>Cắt<b>Lược</b><i>May</i>Là</span>
+  <span><b>Đo</b><i>Rập</i>Cắt<b>Lược</b><i>May</i>Là</span>
+  <span><b>Đo</b><i>Rập</i>Cắt<b>Lược</b><i>May</i>Là</span>
+</div></div>
+
+<!-- ================= I. CÂU CHUYỆN ================= -->
+<section class="story" id="cau-chuyen" data-chapter="Câu chuyện" data-no="I">
+  <div class="wrap">
+    <div class="story-grid">
+      <figure class="st-img st-img--a" data-parallax="-6">
+        <div class="clip" data-clip><img src="assets/tho-may-luoc-ao.jpg" alt="Bàn tay thợ may đang lược chỉ trên áo veston" loading="lazy" onerror="this.style.opacity=0"></div>
+        <figcaption>Lược chỉ tay — bước thợ may nào cũng phải qua</figcaption>
+      </figure>
+
+      <div class="st-text">
+        <p class="kicker">Chương I — Câu chuyện</p>
+        <h2 class="big-quote reveal-words">Giữa Mỹ Tho, nơi nhịp sống chậm lại trước một tấm vải, có một tiệm may tin rằng: một bộ đồ đẹp không đến từ vội vã, mà đến từ đôi tay hiểu người mặc.</h2>
+        <p class="st-body" data-rise>Nhà May Phước theo đuổi lối may đo truyền thống: lắng nghe trước khi cắt, đo kỹ trước khi vẽ, thử đi thử lại trước khi may kín. Mỗi bộ veston, mỗi chiếc đầm rời tiệm là một bộ riêng — không có hai bộ giống hệt nhau, vì không có hai người giống hệt nhau.</p>
+      </div>
+
+      <figure class="st-img st-img--b" data-parallax="8">
+        <div class="clip thuocdo-kimghim" data-clip><img src="assets/thuoc-day-kim.jpg" alt="Thước dây, kim ghim đặt trên mặt vải kẻ sọc" loading="lazy" onerror="this.style.opacity=0"></div>
+        <figcaption>Thước dây &amp; kim ghim — hai người bạn cũ</figcaption>
+      </figure>
+    </div>
+
+    <div class="tenets">
+      <article class="tenet" data-rise><b>i</b><h3>Đo bằng mắt, bằng tay</h3><p>Dáng vai, tư thế đứng, thói quen cử động — thước dây chỉ ghi được một nửa.</p></article>
+      <article class="tenet" data-rise><b>ii</b><h3>Lược chỉ trước khi may</h3><p>Áo được lược bằng tay để thử trên người, chỉnh xong mới may chắc.</p></article>
+      <article class="tenet" data-rise><b>iii</b><h3>Thử – chỉnh – đến khi vừa</h3><p>Chỉ giao áo khi áo đã đứng đúng dáng người mặc.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= II. XƯỞNG VẢI (Three.js) ================= -->
+<section class="lab" id="vai" data-chapter="Xưởng vải" data-no="II">
+  <div class="wrap lab-grid">
+    <div class="lab-stage" id="labStage" data-cursor="Kéo để xoay">
+      <div id="labCanvas"></div>
+      <p class="hint">Kéo để xoay · chọn vải bên cạnh</p>
+    </div>
+    <div class="lab-copy">
+      <p class="kicker">Chương II — Xưởng vải</p>
+      <h2 style="margin-top:20px">Chọn một tấm vải,<br><em>nghe nó kể chuyện</em></h2>
+      <p class="lede">Mỗi chất liệu có tính cách riêng: có loại nghiêm trang, có loại vui tươi. Treo thử từng tấm lên thanh đồng, xoay nhẹ để xem vải đổ.</p>
+      <ul class="swatches" id="swatches" aria-label="Chọn vải"></ul>
+      <div class="sw-info" id="swInfo" aria-live="polite"><h3></h3><p></p></div>
+      <button class="btn light" id="useFabric" type="button" style="margin-top:22px">Đặt may bằng vải này →</button>
+      <small>Hình vải chỉ để minh hoạ trên màn hình — chất vải thật, xin sờ và xem trực tiếp tại tiệm.</small>
+    </div>
+  </div>
+</section>
+
+<!-- ================= III. SỐ ĐO ================= -->
+<section class="measure" id="so-do" data-chapter="Số đo" data-no="III">
+  <div class="wrap measure-grid">
+    <div class="m-copy">
+      <p class="kicker">Chương III — Số đo</p>
+      <h2>Vừa người, bắt đầu từ <em>sáu điểm đo</em></h2>
+      <p>Bản rập của mỗi người được vẽ từ chính những con số này. Chạm vào từng điểm trên bản vẽ để xem thợ may đo gì, và vì sao.</p>
+      <ul class="m-list" id="mList"></ul>
+      <div class="m-info" id="mInfo" aria-live="polite"><h3></h3><p></p></div>
+    </div>
+    <div class="m-stage">
+      <svg id="mSvg" viewBox="0 0 400 520" role="img" aria-label="Bản vẽ áo veston với sáu điểm đo">
+        <g id="mGuides">
+          <line class="guide" x1="10" y1="96" x2="390" y2="96"/>
+          <line class="guide" x1="10" y1="214" x2="390" y2="214"/>
+          <line class="guide" x1="10" y1="320" x2="390" y2="320"/>
+          <line class="guide" x1="10" y1="470" x2="390" y2="470"/>
+          <line class="guide" x1="200" y1="10" x2="200" y2="510"/>
+        </g>
+        <g id="jacket">
+          <path class="cloth draw" d="M170 58 L72 96 C62 140 52 250 44 372 L88 382 C94 300 98 240 104 196 L106 470 L294 470 L296 196 C302 240 306 300 312 382 L356 372 C348 250 338 140 328 96 L230 58 Q200 80 170 58 Z"/>
+          <path class="seam draw" d="M104 196 C98 150 84 120 72 96"/>
+          <path class="seam draw" d="M296 196 C302 150 316 120 328 96"/>
+          <path class="cloth draw" d="M170 58 L200 304 L140 184 L116 160 L150 112 Z"/>
+          <path class="cloth draw" d="M230 58 L200 304 L260 184 L284 160 L250 112 Z"/>
+          <path class="stitch" d="M200 304 L200 470"/>
+          <path class="seam draw" d="M124 380 L180 380 L180 400 L124 400 Z"/>
+          <path class="seam draw" d="M220 380 L276 380 L276 400 L220 400 Z"/>
+          <path class="seam draw" d="M238 230 L270 230 L270 240 L238 240"/>
+          <circle class="btnc" cx="192" cy="336" r="5"/>
+          <circle class="btnc" cx="192" cy="404" r="5"/>
+        </g>
+        <line id="mLine" class="tape" x1="0" y1="0" x2="0" y2="0"/>
+        <text id="mLab" class="lab-t" x="0" y="0"></text>
+        <g id="mHot"></g>
+      </svg>
+      <p class="hint">Chạm vào các điểm tròn trên bản vẽ</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IV. TÁC PHẨM ================= -->
+<section class="lb" id="tac-pham" data-chapter="Tác phẩm" data-no="IV">
+  <div class="wrap lb-head">
+    <p class="kicker">Chương IV — Tác phẩm</p>
+    <h2>Một bộ veston hồng, <em>nhìn thật gần</em></h2>
+    <p class="sub">Rê chuột lên ảnh để soi từng mũi vải. Trên điện thoại, vuốt ngang để xem tiếp.</p>
+  </div>
+  <div class="lb-viewport" id="lbView">
+    <div class="lb-track" id="lbTrack">
+      <article class="lb-card">
+        <div class="zoom" style="--ar:1086/1448" data-cursor="Soi"><img class="mb" src="assets/ao-hong-manocanh.png" alt="Bộ veston hồng tweed trên ma-nơ-canh" loading="lazy" onerror="this.style.opacity=0"><span class="lens"></span></div>
+        <h3><b>01</b>Dáng đứng</h3><p>Veston hồng tweed điểm nút màu, hai cúc, túi nắp cân đối.</p>
+      </article>
+      <article class="lb-card">
+        <div class="zoom" style="--ar:853/887" data-cursor="Soi"><img class="mb" src="assets/chi-tiet-ao-hong-2.png" alt="Ve áo và túi ngực của bộ veston hồng" loading="lazy" onerror="this.style.opacity=0"><span class="lens"></span></div>
+        <h3><b>02</b>Ve áo &amp; túi ngực</h3><p>Ve áo cân phẳng, lưới chỉ màu chạy đều qua từng đường cắt.</p>
+      </article>
+      <article class="lb-card">
+        <div class="zoom" style="--ar:913/887" data-cursor="Soi"><img class="mb" src="assets/chi-tiet-ao-hong-1.png" alt="Đường vai và ve áo bộ veston hồng" loading="lazy" onerror="this.style.opacity=0"><span class="lens"></span></div>
+        <h3><b>03</b>Đường vai</h3><p>Vai gọn, tay áo đổ tự nhiên, họa tiết ăn khớp ở đường nối.</p>
+      </article>
+      <article class="lb-card">
+        <div class="zoom" style="--ar:941/1670" data-cursor="Soi"><img class="mb" src="assets/chan-dung-ao-hong.png" alt="Mở vạt áo veston hồng, thấy lớp lót trắng và nhãn Phước" loading="lazy" onerror="this.style.opacity=0"><span class="lens"></span></div>
+        <h3><b>04</b>Lớp lót &amp; nhãn Phước</h3><p>Mở vạt áo ra: lót trắng sạch, nhãn Phước đính ở túi trong.</p>
+      </article>
+    </div>
+  </div>
+  <div class="lb-bar"><span id="lbBar"></span></div>
+</section>
+
+<!-- ================= V. CHUYÊN MAY ================= -->
+<section class="spec" id="chuyen-may" data-chapter="Chuyên may" data-no="V">
+  <div class="wrap">
+    <div class="spec-head">
+      <p class="kicker">Chương V — Chuyên may</p>
+      <h2>Hai thứ <em>làm nên tên tiệm</em></h2>
+    </div>
+    <div class="acc" id="acc">
+      <article class="acc-p is-open" tabindex="0" aria-label="Veston">
+        <div class="acc-bg"><img src="assets/chi-tiet-ao-hong-1.png" alt="" loading="lazy" onerror="this.style.opacity=0"></div>
+        <div class="acc-in"><span class="num">01</span><h3>Veston</h3>
+          <div class="more"><p>Vai vuông vắn, ve áo sắc nét, lưng áo đứng — mặc lên là tự nhiên thẳng lưng. May đo theo đúng dáng người.</p><a class="link" href="#dat-may" data-pick="Veston">Đặt may veston →</a></div></div>
+      </article>
+      <article class="acc-p dark" tabindex="0" aria-label="Đầm">
+        <div class="acc-bg"><img src="assets/thuoc-day-kim.jpg" alt="" loading="lazy" onerror="this.style.opacity=0" style="object-position:50% 0"></div>
+        <div class="acc-in"><span class="num">02</span><h3>Đầm</h3>
+          <div class="more"><p>Đường cắt mềm, ôm đúng điểm cần ôm — cho ngày cưới, buổi tiệc, hay đơn giản là ngày bạn muốn được nhớ.</p><a class="link" href="#dat-may" data-pick="Đầm">Đặt may đầm →</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VI. QUY TRÌNH ================= -->
+<section class="proc" id="quy-trinh" data-chapter="Quy trình" data-no="VI">
+  <div class="wrap">
+    <div class="proc-head">
+      <p class="kicker">Chương VI — Quy trình</p>
+      <h2>Từ tấm vải <em>đến bộ đồ của riêng bạn</em></h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-stage">
+        <div class="stage-frame">
+          <figure class="stage-img on"><img src="assets/thuoc-day-kim.jpg" alt="Thước dây và kim ghim" loading="lazy" style="object-position:50% 0" onerror="this.style.opacity=0"></figure>
+          <figure class="stage-img"><img class="mb" src="assets/chi-tiet-ao-hong-2.png" alt="Chất vải tweed hồng" loading="lazy" onerror="this.style.opacity=0"></figure>
+          <figure class="stage-img"><img src="assets/rap-phan.jpg" alt="Đường phấn vẽ rập trên vải" loading="lazy" onerror="this.style.opacity=0"></figure>
+          <figure class="stage-img"><img src="assets/tho-may-luoc-ao.jpg" alt="Thợ may lược chỉ trên áo" loading="lazy" onerror="this.style.opacity=0"></figure>
+          <figure class="stage-img"><img class="mb" src="assets/ao-hong-manocanh.png" alt="Bộ veston hoàn thiện" loading="lazy" onerror="this.style.opacity=0"></figure>
+          <span class="stage-num" id="stageNum">01</span>
+        </div>
+      </div>
+      <div class="proc-steps">
+        <article class="step on"><span>01</span><h3>Hẹn &amp; đo</h3><p>Bạn ghé tiệm hoặc hẹn trước qua điện thoại. Thợ đo kỹ từng số đo và lắng nghe dịp bạn sẽ mặc bộ đồ này.</p></article>
+        <article class="step"><span>02</span><h3>Chọn vải &amp; kiểu</h3><p>Chọn chất liệu, màu sắc và kiểu dáng: ve áo, số cúc, kiểu túi, lớp lót — mọi chi tiết đều do bạn quyết định.</p></article>
+        <article class="step"><span>03</span><h3>Rập &amp; cắt</h3><p>Từ số đo của riêng bạn, đường rập được vẽ phấn lên vải, rồi cắt từng đường dứt khoát.</p></article>
+        <article class="step"><span>04</span><h3>Lược &amp; thử</h3><p>Áo được lược chỉ tay để thử trên người. Chỉnh vai, chỉnh eo, chỉnh tay áo cho đến khi đứng dáng.</p></article>
+        <article class="step"><span>05</span><h3>Hoàn thiện &amp; giao</h3><p>Là ủi, đính nhãn Phước, và giao áo — vừa vặn như được sinh ra cho bạn.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true"><div class="strip-in" data-dir="-1">
+  <span><i>Đầm</i><b>Veston</b>Mỹ Tho<i>May đo</i><b>Phước</b></span>
+  <span><i>Đầm</i><b>Veston</b>Mỹ Tho<i>May đo</i><b>Phước</b></span>
+  <span><i>Đầm</i><b>Veston</b>Mỹ Tho<i>May đo</i><b>Phước</b></span>
+  <span><i>Đầm</i><b>Veston</b>Mỹ Tho<i>May đo</i><b>Phước</b></span>
+</div></div>
+
+<!-- ===================== [2] HTML ===================== -->
+<!-- ================= THỬ ÁO ẢO ================= -->
+<section class="fit" id="thu-ao" data-chapter="Thử áo ảo" data-no="✦">
+  <div class="wrap">
+    <div class="fit-head">
+      <p class="kicker">Thử áo ảo</p>
+      <h2>Mặc thử bộ veston <em>của riêng bạn</em> trước khi cắt đường kéo đầu tiên</h2>
+      <p class="sub">Nhập số đo, ma-nơ-canh sẽ co giãn đúng dáng bạn. Chọn vải, ve áo, số cúc, kiểu túi và xem áo đổi ngay trên người. Ưng ý thì gửi cả cấu hình sang Zalo của tiệm.</p>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-stage" id="fitStage" data-cursor="Kéo xoay">
+        <span class="fit-ghost" aria-hidden="true">Phước</span>
+        <div id="fitCanvas"></div>
+        <span class="fit-tag" id="fitTag"></span>
+        <div class="fit-views" role="group" aria-label="Góc nhìn">
+          <button type="button" data-v="0" aria-pressed="true">Trước</button>
+          <button type="button" data-v="1" aria-pressed="false">Nghiêng</button>
+          <button type="button" data-v="2" aria-pressed="false">Sau</button>
+          <button type="button" id="fitZoom" aria-pressed="false">Cận cảnh</button>
+        </div>
+        <p class="hint">Kéo để xoay · kéo thanh số đo để thấy áo co giãn</p>
+      </div>
+ 
+      <div class="fit-panel">
+        <div class="fs">
+          <h3><b>01</b>Số đo của bạn</h3>
+          <div class="presets" id="fitPresets" role="group" aria-label="Dáng mẫu"></div>
+          <div id="fitNums"></div>
+          <p class="fit-read" id="fitRead" aria-live="polite"></p>
+        </div>
+        <div class="fs">
+          <h3><b>02</b>Chọn vải</h3>
+          <div class="fchips" id="fitFab" role="group" aria-label="Chọn vải"></div>
+          <p class="opt-note" id="fabNote" aria-live="polite"></p>
+        </div>
+        <div class="fs">
+          <h3><b>03</b>Kiểu dáng</h3>
+          <p class="gl" style="margin-top:0">Ve áo</p><div class="seg" id="sgLapel"></div><p class="opt-note" id="ntLapel"></p>
+          <p class="gl">Số cúc</p><div class="seg" id="sgBtn"></div><p class="opt-note" id="ntBtn"></p>
+          <p class="gl">Kiểu túi</p><div class="seg" id="sgPocket"></div><p class="opt-note" id="ntPocket"></p>
+          <p class="gl">Độ ôm</p><div class="seg" id="sgFit"></div><p class="opt-note" id="ntFit"></p>
+          <label class="chk"><input type="checkbox" id="fitSq"> Thêm khăn cài túi ngực</label>
+        </div>
+        <div class="fs">
+          <h3><b>04</b>Phiếu may của bạn</h3>
+          <div class="ticket" id="fitTicket" aria-live="polite"></div>
+          <div class="form-actions">
+            <button class="btn" type="button" id="fitSend">Gửi cấu hình sang Zalo</button>
+            <button class="btn ghost" type="button" id="fitForm">Điền vào form đặt lịch</button>
+            <button class="btn ghost" type="button" id="fitSnap">Lưu ảnh</button>
+          </div>
+          <p class="form-msg" id="fitMsg" role="status"></p>
+          <small>Hình dựng trên màn hình chỉ để hình dung. Thợ may sẽ đo lại trực tiếp tại tiệm trước khi cắt vải.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VII. ĐẶT MAY ================= -->
+<section class="book" id="dat-may" data-chapter="Đặt lịch" data-no="VII">
+  <div class="wrap">
+    <div class="book-head">
+      <p class="kicker">Chương VII — Đặt lịch</p>
+      <h2>Một bộ đồ vừa vặn bắt đầu bằng <em>một cuộc hẹn</em></h2>
+    </div>
+    <div class="book-grid">
+      <form class="form" id="bookForm" novalidate>
+        <div class="row">
+          <div class="field"><label for="fName">Họ và tên</label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone">Số điện thoại</label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="fItem">Bạn muốn may</label>
+            <select id="fItem" name="item"><option>Veston</option><option>Đầm</option><option>Khác — tư vấn tại tiệm</option></select></div>
+          <div class="field"><label for="fOcc">Dịp mặc</label>
+            <select id="fOcc" name="occasion"><option value="">Chưa xác định</option><option>Đám cưới</option><option>Công sở</option><option>Tiệc / sự kiện</option><option>Mặc hằng ngày</option></select></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="fFab">Vải quan tâm</label><select id="fFab" name="fabric"></select></div>
+          <div class="field"><label for="fDate">Ngày hẹn dự kiến</label><input id="fDate" name="date" type="date"></div>
+        </div>
+        <div class="field"><label for="fNote">Ghi chú</label><textarea id="fNote" name="note" placeholder="Ví dụ: cần xong trước ngày cưới…"></textarea></div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Gửi lịch hẹn qua Zalo</button>
+          <a class="btn ghost" href="tel:0918779061">Gọi 0918 779 061</a>
+        </div>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+
+      <div class="contact">
+        <figure class="sign">
+          <img class="mb" src="assets/bien-hieu.png" alt="Bảng hiệu Nhà May Phước — Chuyên may Đầm, Veston" loading="lazy" onerror="this.style.opacity=0">
+          <figcaption>Tìm bảng hiệu này trên đường Nam Kỳ Khởi Nghĩa</figcaption>
+        </figure>
+        <ul class="info-list">
+          <li><b>Địa chỉ</b><span>173 Nam Kỳ Khởi Nghĩa, Phường 4, TP. Mỹ Tho</span></li>
+          <li><b>Điện thoại</b><a href="tel:0918779061">0918 779 061</a></li>
+          <li><b>Chuyên may</b><span>Đầm · Veston</span></li>
+          <li><b>Lưu ý</b><span>Hẹn trước để thợ may dành trọn thời gian cho bạn.</span></li>
+        </ul>
+        <div class="map">
+          <iframe title="Bản đồ Nhà May Phước" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=173+Nam+K%E1%BB%B3+Kh%E1%BB%9Fi+Ngh%C4%A9a,+Ph%C6%B0%E1%BB%9Dng+4,+M%E1%BB%B9+Tho&output=embed"></iframe>
+        </div>
+        <a class="link" style="justify-self:start" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=173+Nam+K%E1%BB%B3+Kh%E1%BB%9Fi+Ngh%C4%A9a+M%E1%BB%B9+Tho">Chỉ đường bằng Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="big"><i>Nhà May</i><br>Phước</div>
+      <div>
+        <p>173 Nam Kỳ Khởi Nghĩa, P4, TP. Mỹ Tho</p>
+        <p style="margin-top:6px"><a href="tel:0918779061">0918 779 061</a></p>
+        <div class="foot-links" style="margin-top:20px">
+          <a href="#cau-chuyen">Câu chuyện</a><a href="#vai">Chọn vải</a><a href="#tac-pham">Tác phẩm</a><a href="#quy-trinh">Quy trình</a><a href="#dat-may">Đặt lịch</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot"><span>© <span id="yr"></span> Nhà May Phước — Chuyên may Đầm · Veston</span><a href="#top">Về đầu trang ↑</a></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
