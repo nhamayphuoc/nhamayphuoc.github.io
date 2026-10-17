@@ -619,14 +619,10 @@ function heroIn(){
     const done = () => { msg.textContent = 'Đã sao chép nội dung lịch hẹn. Zalo sẽ mở ra — chỉ cần dán và gửi cho tiệm.'; };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => { msg.textContent = 'Zalo sẽ mở ra — bạn nhắn nội dung: ' + text; });
     else msg.textContent = 'Zalo sẽ mở ra — bạn nhắn nội dung: ' + text;
-    window.open('https://zalo.me/0918779061', '_blank', 'noopener');
+    window.open('https://zalo.me/0357307441', '_blank', 'noopener');
   });
 })();
 
-/* ============================================================
-   THỬ ÁO ẢO — ma-nơ-canh co giãn theo số đo + áo veston dựng theo cấu hình
-   (dán vào TRƯỚC khối PRELOADER, trong IIFE chính)
-   ============================================================ */
 (function fitting(){
   const stage = $('#fitStage'); if (!stage) return;
   const NUM = [['h','Chiều cao',150,195],['ch','Vòng ngực',76,125],['wa','Vòng eo',60,120],['hi','Vòng hông',80,125],['sh','Ngang vai',34,54]];
@@ -635,7 +631,7 @@ function heroIn(){
   const BTN = { 1:['1 cúc','Một cúc: gọn, hiện đại, ve áo dài và thanh.'], 2:['2 cúc','Hai cúc: chuẩn mực cho công sở và cưới hỏi, chỉ cài cúc trên.'], 3:['3 cúc','Ba cúc: cổ điển, ve áo cuộn nhẹ, dáng nhìn cao hơn.'] };
   const POCKET = { flap:['Túi nắp','Túi nắp: có nắp phủ, trang trọng vừa phải, dùng hằng ngày.'], welt:['Túi viền','Túi viền: chỉ một đường viền mảnh, gọn và thanh nhất, hợp lễ phục.'], patch:['Túi ốp','Túi ốp: túi may nổi bên ngoài, phóng khoáng, hợp vải lanh và dáng blazer.'] };
   const FIT = { om:['Ôm','Ôm: bám sát dáng, đường eo rõ.'], vua:['Vừa','Vừa: thoải mái mà vẫn gọn, hợp đa số người mặc.'], rong:['Rộng','Rộng: dễ cử động, áo đổ mềm, dáng thư thả.'] };
-  const cfg = { h:171, ch:95, wa:81, hi:97, sh:43, fab:'tweed', lapel:'notch', btn:2, pocket:'flap', fit:'vua', sq:false };
+  const cfg = { h:171, ch:95, wa:81, hi:97, sh:43, fab:'tweed', lapel:'notch', btn:2, pocket:'flap', fit:'vua', sq:false, tie:true };
   const C = { h:158, ch:84, wa:70, hi:88, sh:38 };            /* bắt đầu hơi nhỏ rồi "lớn" ra đúng số đo */
   if (reduce) NUM.forEach(([k]) => C[k] = cfg[k]);
   const g3 = {};                                               /* cầu nối UI → 3D */
@@ -652,7 +648,7 @@ function heroIn(){
   const lines = () => [
     ['Cao', cfg.h + ' cm'], ['Ngực / Eo / Hông', `${cfg.ch} / ${cfg.wa} / ${cfg.hi} cm`], ['Ngang vai', cfg.sh + ' cm'],
     ['Vải', fabName()], ['Ve áo', LAPEL[cfg.lapel][0]], ['Số cúc', BTN[cfg.btn][0]], ['Kiểu túi', POCKET[cfg.pocket][0]], ['Độ ôm', FIT[cfg.fit][0]]
-  ].concat(cfg.sq ? [['Phụ kiện', 'Khăn cài túi ngực']] : []);
+  ].concat(cfg.sq ? [['Phụ kiện', 'Khăn cài túi ngực']] : []).concat(cfg.tie ? [['Sơ mi', 'Trắng, kèm cà vạt']] : []);
   function refresh(){
     const i = info();
     $('#fitRead').textContent = `Cỡ tham khảo ${i.sz} · ${i.shape} (ngực hơn eo ${i.d} cm).`;
@@ -690,6 +686,8 @@ function heroIn(){
   }
   seg('#sgLapel', LAPEL, 'lapel', '#ntLapel'); seg('#sgBtn', BTN, 'btn', '#ntBtn'); seg('#sgPocket', POCKET, 'pocket', '#ntPocket'); seg('#sgFit', FIT, 'fit', '#ntFit');
   $('#fitSq').addEventListener('change', e => { cfg.sq = e.target.checked; g3.style && g3.style(); refresh(); });
+  const tieBox = $('#fitTie');                                  /* tuỳ chọn: chỉ chạy nếu bạn đã thêm checkbox */
+  if (tieBox) tieBox.addEventListener('change', e => { cfg.tie = e.target.checked; g3.style && g3.style(); refresh(); });
   SWATCHES.forEach(s => {
     const b = document.createElement('button'); b.type = 'button'; b.className = 'fchip'; b.title = s.name; b.setAttribute('aria-label', s.name);
     b.setAttribute('aria-pressed', s.id === cfg.fab); b.innerHTML = `<i style="background-image:url(${thumb(s.id)})"></i>`;
@@ -706,7 +704,7 @@ function heroIn(){
     const done = () => { msg.textContent = 'Đã sao chép phiếu may. Zalo đang mở, chỉ cần dán và gửi cho tiệm.'; };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, () => { msg.textContent = 'Zalo đang mở. Bạn nhắn giúp nội dung: ' + t.replace(/\n/g, ' '); });
     else msg.textContent = 'Zalo đang mở. Bạn nhắn giúp nội dung: ' + t.replace(/\n/g, ' ');
-    window.open('https://zalo.me/0918779061', '_blank', 'noopener');
+    window.open('https://zalo.me/0357307441', '_blank', 'noopener');
   });
   $('#fitForm').addEventListener('click', () => {
     $('#fItem').value = 'Veston'; $('#fFab').value = fabName();
@@ -736,12 +734,13 @@ function heroIn(){
  
     const tcache = {};
     const tex = id => tcache[id] || (tcache[id] = Object.assign(new THREE.CanvasTexture(canvases[id]), { wrapS:THREE.RepeatWrapping, wrapT:THREE.RepeatWrapping, encoding:THREE.sRGBEncoding, anisotropy:8 }));
-    const DS = THREE.DoubleSide, std = (o) => new THREE.MeshStandardMaterial(o);
+    const DS = THREE.DoubleSide, std = o => new THREE.MeshStandardMaterial(o);
     let shown = cfg.fab;
     const fabM = std({ map:tex(shown), roughness:.95, side:DS }), lapM = std({ map:tex(shown), roughness:.9, side:DS });
     const bodyM = std({ color:0xD9CBAE, roughness:.9 }), woodM = std({ color:0x9C6B35, roughness:.55, metalness:.1 }), steelM = std({ color:0x2a241e, metalness:.4, roughness:.45 });
     const shirtM = std({ color:0xF6F1E6, roughness:.9, side:DS }), sqM = std({ color:0x7A1E27, roughness:.8, side:DS }), sq2M = std({ color:0xEFE6D2, roughness:.8, side:DS });
     const brassM = std({ color:0xA9854F, metalness:.75, roughness:.3 }), hornM = std({ color:0x2b211a, roughness:.35 });
+    const tieM = std({ color:0x1C2B6B, roughness:.5, side:DS });
     const dk = o => new THREE.MeshBasicMaterial({ color:0x16120E, transparent:true, opacity:o, side:DS });
     const outM = dk(.5), hemM = dk(.22), seamM = dk(.45), slitM = new THREE.MeshBasicMaterial({ color:0x0d0a08, side:DS });
     const ringM = new THREE.MeshBasicMaterial({ color:0xE2A03A, transparent:true, opacity:0, depthTest:false });
@@ -757,11 +756,11 @@ function heroIn(){
     g3.ring = k => { ringKey = k; ringT = 1.8; placeRing(); };
  
     let jr = () => 0;
-    /* lưới bám theo mặt áo: dùng cho ve, túi, khăn, sơ mi */
-    function grid(f, ny, nx, off, mat){
-      const pos = [], uv = [], idx = [];
+    /* lưới bám theo mặt áo: dùng cho ve, túi, khăn, sơ mi, cà vạt, đường may (bk = true: mặt lưng) */
+    function grid(f, ny, nx, off, mat, bk){
+      const pos = [], uv = [], idx = [], sg = bk ? -1 : 1;
       for (let i = 0; i <= ny; i++){ const r = f(i/ny); for (let j = 0; j <= nx; j++){
-        const x = lerp(r.xa, r.xb, j/nx), a = jr(r.y), z = ZS*Math.sqrt(Math.max(0, a*a - x*x)) + off;
+        const x = lerp(r.xa, r.xb, j/nx), a = jr(r.y), z = sg*(ZS*Math.sqrt(Math.max(0, a*a - x*x)) + off);
         pos.push(x, r.y, z); uv.push(x/TX, r.y/TX);
       } }
       for (let i = 0; i < ny; i++) for (let j = 0; j < nx; j++){ const a = i*(nx+1)+j, b = a+1, c = a+nx+1, d = c+1; idx.push(a, c, b, b, c, d); }
@@ -771,69 +770,90 @@ function heroIn(){
  
     function build(){
       while (dyn.children.length){ const o = dyn.children.pop(); o.traverse(m => m.geometry && m.geometry.dispose()); }
-      const { h:H, ch, wa, hi, sh } = C, A = c => c/K, ach = A(ch), awa = A(wa), ahi = A(hi);
-      /* thân ma-nơ-canh: bán kính theo chiều cao, nội suy Hermite */
-      const pts = [[.42,ahi*.92],[.51,ahi],[.565,lerp(ahi,awa,.55)],[.615,awa],[.665,lerp(awa,ach,.6)],[.715,ach],[.76,ach+(sh/2-ach)*.28],[.795,sh/2*.93],[.822,sh/2*.62],[.848,8.4],[.88,6],[.9,4.6]].map(p => [p[0]*H, p[1]]);
+      const { h:H, ch, wa, hi, sh } = C, A = c => c/K, ach = A(ch), awa = A(wa), ahi = A(hi), hs = sh/2;
+      /* thân: vai dốc ~33°, tròn ở đầu vai, không còn "bậc" */
+      const pts = [[.42,ahi*.92],[.51,ahi],[.565,lerp(ahi,awa,.55)],[.615,awa],[.665,lerp(awa,ach,.6)],[.715,ach],[.76,ach+(hs-ach)*.5],[.795,hs],[.805,hs*.93],[.817,hs*.78],[.83,hs*.58],[.845,8.6],[.875,6],[.9,4.6]].map(p => [p[0]*H, p[1]]);
       const sl = i => { const a = pts[Math.max(i-1,0)], b = pts[Math.min(i+1,pts.length-1)]; return (b[1]-a[1])/(b[0]-a[0]); };
       const prof = y => { y = Math.min(pts[pts.length-1][0], Math.max(pts[0][0], y)); let i = 0; while (i < pts.length-2 && y > pts[i+1][0]) i++;
         const [y0,r0] = pts[i], [y1,r1] = pts[i+1], d = y1-y0, t = (y-y0)/d, m0 = sl(i)*d, m1 = sl(i+1)*d, t2 = t*t, t3 = t2*t;
         return (2*t3-3*t2+1)*r0 + (t3-2*t2+t)*m0 + (-2*t3+3*t2)*r1 + (t3-t2)*m1; };
-      M(new THREE.LatheGeometry(lathe(prof, .42*H, .9*H, 48), 48), bodyM).scale.z = ZS;
+      M(new THREE.LatheGeometry(lathe(prof, .42*H, .9*H, 56), 48), bodyM).scale.z = ZS;
       const cap = M(new THREE.CircleGeometry(4.6, 24), bodyM, 0, .9*H, 0); cap.rotation.x = -Math.PI/2; cap.scale.y = ZS;
       M(new THREE.CylinderGeometry(1.6,1.6,.04*H,16), woodM, 0, .92*H, 0); M(new THREE.SphereGeometry(2.6,20,16), woodM, 0, .955*H, 0);
       M(new THREE.CylinderGeometry(.8,.8,.42*H,12), steelM, 0, .21*H, 0); M(new THREE.CylinderGeometry(26,28,2.4,40), woodM, 0, 1.2, 0);
       const sd = M(new THREE.CircleGeometry(46,40), dk(.18), 0, .1, 0); sd.rotation.x = -Math.PI/2;
  
-      /* áo */
+      /* ---- áo ---- */
       const E = { om:1.5, vua:2.8, rong:4.2 }[cfg.fit];
       const ease = y => E*Math.min(1, Math.max(.35, (.9 - y/H)/.15));
       jr = y => prof(y) + ease(y) + (y < .47*H ? (.47*H - y)/(.03*H)*.7 : 0);
-      const yH = .44*H, yT = .856*H, wy = .615*H, yTop = .846*H;
+      const yH = .44*H, yT = .85*H, wy = .615*H, yTop = .84*H, pY = .545*H, yB = .745*H;
       lapM.color.setHex(cfg.lapel === 'shawl' ? 0x8a8a8a : 0xffffff); lapM.roughness = cfg.lapel === 'shawl' ? .35 : .9;
-      M(uvs(new THREE.LatheGeometry(lathe(jr, yH, yT, 56), 64), 3.9, (yT-yH)/TX), fabM).scale.z = ZS;
-      RA = { h:[.93*H, 9], ch:[.715*H, ach+ease(.715*H)+.7], wa:[.615*H, awa+ease(.615*H)+.7], hi:[.51*H, ahi+ease(.51*H)+.7], sh:[.795*H, sh/2*.93+ease(.795*H)+.7] }; placeRing();
-      /* tay áo + vai */
-      const rt = ach*.3 + E*.35, rb = 4.2 + E*.3, Ls = .335*H, sy = .795*H - 2;
+      M(uvs(new THREE.LatheGeometry(lathe(jr, yH, yT, 60), 64), 3.9, (yT-yH)/TX), fabM).scale.z = ZS;
+      RA = { h:[.93*H, 9], ch:[.715*H, ach+ease(.715*H)+.7], wa:[.615*H, awa+ease(.615*H)+.7], hi:[.51*H, ahi+ease(.51*H)+.7], sh:[.795*H, hs+ease(.795*H)+.7] }; placeRing();
+ 
+      /* ---- tay áo: ống cong liền từ đầu vai, nở ở bắp tay rồi thon dần, khuỷu gập nhẹ ra trước ---- */
+      const rt = ach*.3 + E*.35, rb = 4.2 + E*.3, Ls = .34*H, X = hs + E*.7, Y0 = .795*H - 3.2, r0 = 3.4, NS = 30, RS = 18, RV = RS + 1;
       [-1, 1].forEach(s => {
-        const sx = s*(sh/2*.94 + rt*.5), ang = .14, d = new THREE.Vector3(s*Math.sin(ang), -Math.cos(ang), 0);
-        const m = M(uvs(new THREE.CylinderGeometry(rt, rb, Ls, 28, 1, true), 2*Math.PI*rt/TX, Ls/TX), fabM, sx + d.x*Ls/2, sy + d.y*Ls/2, 0);
-        m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), d.clone().negate());
-        M(uvs(new THREE.SphereGeometry(rt, 20, 16), 2*Math.PI*rt/TX, Math.PI*rt/TX), fabM, sx, sy, 0);
+        const cv = new THREE.CatmullRomCurve3([[X-3,Y0,0],[X-1.2,Y0-7,.4],[X+rt*.28,Y0-Ls*.5,1.6],[X+rt*.45+.6,Y0-Ls*.97,3]].map(p => new THREE.Vector3(s*p[0], p[1], p[2])), false, 'centripetal');
+        const g = new THREE.TubeGeometry(cv, NS, 1, RS, false), P = g.attributes.position;
+        for (let i = 0; i <= NS; i++){
+          const t = i/NS, c = cv.getPointAt(t), r = (r0 + (rt - r0)*Math.sin(Math.min(1, t/.22)*Math.PI/2)) * lerp(1, rb/rt, Math.pow(t, .9));
+          for (let j = 0; j < RV; j++){ const k = i*RV + j; P.setXYZ(k, c.x + (P.getX(k)-c.x)*r, c.y + (P.getY(k)-c.y)*r, c.z + (P.getZ(k)-c.z)*r); }
+        }
+        uvs(g, Ls/TX, 2*Math.PI*rt/TX); g.computeVertexNormals(); dyn.add(new THREE.Mesh(g, fabM));
+        [.95, .89].forEach(tt => { const c = cv.getPointAt(tt); M(new THREE.SphereGeometry(.5,10,8), hornM, c.x + s*rb*.97, c.y, c.z + .2); });   /* cúc tay áo */
       });
-      /* cổ áo */
+ 
+      /* ---- cổ áo + sơ mi + cà vạt ---- */
       const gap = 1.25, tg = new THREE.TorusGeometry(jr(yT) - .5, 1.35, 10, 36, 2*Math.PI - gap); tg.rotateZ(-Math.PI/2 + gap/2); tg.rotateX(-Math.PI/2);
       M(uvs(tg, 2*Math.PI*9/TX, 1), lapM, 0, yT + .3, 0).scale.z = ZS + .1;
- 
-      /* nút, ve áo, sơ mi */
       const B = { 1:[wy+1], 2:[wy+2, wy-8.5], 3:[wy+8, wy, wy-8] }[cfg.btn];
       const yEnd = cfg.btn === 3 ? B[0] - 2 : B[0];
-      const c = t => lerp(4.2, .8, Math.pow(t, .8));
-      grid(t => ({ y:lerp(.856*H, yEnd, t), xa:-(c(t) + .8), xb:c(t) + .8 }), 20, 4, .15, shirtM);
+      const c = t => lerp(4.2, .6, Math.pow(t, .8));
+      grid(t => ({ y:lerp(yT + .5, yEnd, t), xa:-(c(t) + .8), xb:c(t) + .8 }), 22, 4, .15, shirtM);
+      if (cfg.tie !== false){
+        const tg2 = new THREE.TorusGeometry(jr(yT) - 1.7, 1, 8, 36); tg2.rotateX(Math.PI/2); M(tg2, shirtM, 0, yT + 1.3, 0).scale.z = ZS + .1;
+        [-1, 1].forEach(s => grid(t => ({ y:lerp(yT + 1.6, yT - 7.5, t), xa:s*(1 + 2.6*t), xb:s*(1 + 2.6*t + 3*(1 - t) + .2) }), 8, 3, .38, shirtM));
+        tieM.color.setHex(shown === 'navy' || shown === 'black' ? 0x7A1E27 : 0x1C2B6B);
+        grid(t => ({ y:lerp(yT - 3, yEnd, t), xa:-(1.1 + .9*t), xb:1.1 + .9*t }), 24, 2, .3, tieM);
+        const kn = M(new THREE.SphereGeometry(1.6, 14, 10), tieM, 0, yT - 1.9, ZS*jr(yT - 1.9) + 1.1); kn.scale.set(1.15, .9, .75);
+      }
+      /* ---- ve áo: có viền đậm tách khỏi thân ---- */
       const st = cfg.lapel, yTL = yTop + (st === 'peak' ? 2.5 : 0);
       const wf = t => st === 'notch' ? 7.4*(1 - .22*t) - 2.6*Math.exp(-Math.pow((t - .13)/.045, 2))
                     : st === 'peak' ? 9.4*(1 - .5*t) + 2.2*Math.exp(-Math.pow((t - .1)/.1, 2)) : 8.4*(1 - .4*t);
-      [-1, 1].forEach(s => grid(t => { const y = lerp(yTL, yEnd, t); return { y, xa:s*c(t), xb:s*Math.min(c(t) + wf(t), .88*jr(y)) }; }, 28, 5, .45, lapM));
+      [-1, 1].forEach(s => {
+        const xo = (t, y) => Math.min(c(t) + wf(t), .88*jr(y));
+        grid(t => { const y = lerp(yTL + .4, yEnd - .5, t); return { y, xa:s*(c(t) - .3), xb:s*(xo(t, y) + .4) }; }, 28, 5, .3, outM);
+        grid(t => { const y = lerp(yTL, yEnd, t); return { y, xa:s*c(t), xb:s*xo(t, y) }; }, 28, 5, .45, lapM);
+      });
       grid(t => ({ y:lerp(yEnd, yH, t), xa:-.12, xb:.12 }), 8, 1, .3, seamM);
       const bm = shown === 'tweed' ? brassM : hornM;
       B.forEach(y => { const g = new THREE.CylinderGeometry(1.15, 1.15, .5, 20); g.rotateX(Math.PI/2); M(g, bm, 0, y, ZS*jr(y) + .45); });
  
-      /* túi */
-      const pY = .545*H;
+      /* ---- đường ly dọc thân trước (tạo eo), túi ---- */
+      [-1, 1].forEach(s => grid(t => { const y = lerp(pY + 3.6, .725*H, t), x = s*jr(y)*lerp(.5, .44, t); return { y, xa:x - .13, xb:x + .13 }; }, 12, 1, .2, seamM));
       [-1, 1].forEach(s => {
         const xc = s*jr(pY)*.56, P = (y0, y1, w, off, m) => grid(t => ({ y:lerp(y0, y1, t), xa:xc - w, xb:xc + w }), 2, 6, off, m);
         if (cfg.pocket === 'flap'){ P(pY+3, pY-3.2, 7.8, .18, outM); P(pY+2.6, pY-2.6, 7.4, .5, fabM); P(pY-2.6, pY-3.5, 7.4, .3, outM); }
         else if (cfg.pocket === 'welt'){ P(pY+1.9, pY-1.9, 7.2, .18, outM); P(pY+.45, pY-.45, 6.6, .25, slitM); P(pY+1.7, pY+.45, 6.6, .5, fabM); P(pY-.45, pY-1.7, 6.6, .5, fabM); }
         else { P(pY+2.2, pY-12.4, 7.6, .18, outM); P(pY+2, pY-12, 7.2, .5, fabM); P(pY+2, pY+.6, 7.2, .52, hemM); }
       });
-      const yB = .745*H, xb0 = jr(yB)*.5, Q = (y0, y1, w, off, m) => grid(t => ({ y:lerp(y0, y1, t), xa:xb0 - w, xb:xb0 + w }), 2, 5, off, m);
+      const xb0 = jr(yB)*.5, Q = (y0, y1, w, off, m) => grid(t => ({ y:lerp(y0, y1, t), xa:xb0 - w, xb:xb0 + w }), 2, 5, off, m);
       Q(yB+1.4, yB-1.4, 5.6, .18, outM); Q(yB+.35, yB-.35, 5, .25, slitM); Q(yB+1.2, yB+.35, 5, .5, fabM); Q(yB-.35, yB-1.2, 5, .5, fabM);
       if (cfg.sq){
         grid(t => ({ y:lerp(yB+3, yB+.3, t), xa:xb0 + 1.2 - 3.4*t, xb:xb0 + 1.2 + 3.4*t }), 6, 4, .7, sq2M);
         grid(t => ({ y:lerp(yB+3.6, yB+.3, t), xa:xb0 - 1 - 4*t, xb:xb0 - 1 + 4*t }), 6, 4, .9, sqM);
       }
+ 
+      /* ---- mặt lưng: đường sống lưng, cầu vai, xẻ tà ---- */
+      grid(t => ({ y:lerp(yT - 1, yH, t), xa:-.13, xb:.13 }), 10, 1, .25, seamM, true);
+      grid(t => ({ y:lerp(yH, yH + 19, t), xa:-.3, xb:.3 }), 4, 1, .3, slitM, true);
+      grid(t => { const y = .775*H + t*.3, w = jr(.775*H)*.8; return { y, xa:-w, xb:w }; }, 1, 14, .2, seamM, true);
     }
  
-    /* ---------- điều khiển ---------- */
+    /* ---------- điều khiển 3D ---------- */
     const S = { rot:0, extra:0 }, L = { z:19, y:-.4 };
     let dirty = true, vis = true, t = 0, drag = false, lastX = 0, vel = 0, idle = 0, zoomed = false;
     stage.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; drag = true; lastX = e.clientX; vel = 0; idle = 0; stage.setPointerCapture(e.pointerId); });
